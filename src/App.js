@@ -15,6 +15,10 @@ function App() {
     const [pokemons, setPokemons] = useState([]);
     const [inputValue, setInputValue] = useState('');
 
+    const deferredInputValue = useDeferredValue(inputValue, {
+        timeoutMs: 5000
+    });
+
     const getPokemons = useCallback(() => {
         fetch('https://pokeapi.co/api/v2/pokemon?limit=200').then(response => response.json()).then(data => {
             setPokemons(data.results)
@@ -23,7 +27,10 @@ function App() {
 
     const onInputChange = (value) => {
         setInputValue(value);
-        sendAnalyticsPing(value);
+
+        unstable_scheduleCallback(unstable_IdlePriority, function() {
+            sendAnalyticsPing(value);
+        });
     };
 
     useEffect(() => {
@@ -34,7 +41,7 @@ function App() {
         <div className="App">
             <Header>Pokemons</Header>
             <SearchBox inputValue={inputValue} onChange={onInputChange}/>
-            <PokemonsList pokemons={pokemons} searchValue={inputValue}/>
+            <PokemonsList pokemons={pokemons} searchValue={deferredInputValue}/>
             <Description/>
         </div>
     );
