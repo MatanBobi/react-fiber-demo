@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {miningBitcoin} from '../../helpers/utils';
+import {simulateSleep} from '../../helpers/utils';
 
 const Pokemon = ({name, searchValue}) => {
     const [pokemonData, setPokemonData] = useState({});
@@ -10,7 +10,7 @@ const Pokemon = ({name, searchValue}) => {
         })
     }, [name]);
 
-    miningBitcoin(1);
+    simulateSleep(2);
 
     const matchesFilterAtIndex = name.toLowerCase().indexOf(searchValue.toLowerCase());
 

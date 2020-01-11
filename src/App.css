@@ -48,12 +48,12 @@ h1 {
   padding: 20px 0;
   /*width: 50%;*/
   float: left;
-  color: #ffadb4;
+  color: #E6B89C;
 }
 
 .highlight {
   color: #000000;
-  background: #ffadb4;
+  background: #E6B89C;
   padding: 5px;
 }
 
@@ -68,7 +68,7 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 40vh;
+  height: 10vh;
   text-align: left;
   padding-left: 100px;
   padding-right: 100px;
@@ -90,4 +90,12 @@ h1 {
   position: relative;
   width: 120px;
   height: 40px;
+}
+
+.min-fps {
+  position: absolute;
+  color: white;
+  font-size: 18px;
+  right: 110px;
+  bottom: 12px;
 }

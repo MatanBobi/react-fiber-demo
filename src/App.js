@@ -10,38 +10,30 @@ import {
     unstable_runWithPriority,
     unstable_scheduleCallback
 } from "scheduler";
+import Spinner from './components/Spinner';
 
 function App() {
-    const [pokemons, setPokemons] = useState([]);
     const [inputValue, setInputValue] = useState('');
 
     const deferredInputValue = useDeferredValue(inputValue, {
-        timeoutMs: 5000
+        timeoutMs: 3000
     });
-
-    const getPokemons = useCallback(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon?limit=200').then(response => response.json()).then(data => {
-            setPokemons(data.results)
-        })
-    }, [setPokemons]);
 
     const onInputChange = (value) => {
         setInputValue(value);
 
-        unstable_scheduleCallback(unstable_IdlePriority, function() {
+        unstable_scheduleCallback(unstable_IdlePriority, function () {
             sendAnalyticsPing(value);
         });
     };
 
-    useEffect(() => {
-        getPokemons();
-    }, [getPokemons]);
-
     return (
         <div className="App">
-            <Header>Pokemons</Header>
+            <Header>Pokédex</Header>
             <SearchBox inputValue={inputValue} onChange={onInputChange}/>
-            <PokemonsList pokemons={pokemons} searchValue={deferredInputValue}/>
+            <React.Suspense fallback={<Spinner/>}>
+                <PokemonsList searchValue={deferredInputValue}/>
+            </React.Suspense>
             <Description/>
         </div>
     );
