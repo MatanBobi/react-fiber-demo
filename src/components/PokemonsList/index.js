@@ -4,10 +4,9 @@ import Spinner from '../Spinner'
 
 const PokemonsList = ({ searchValue }) => {
   const [pokemons, setPokemons] = useState([])
-  const [isFetching, setIsFetching] = useState(false)
+  const [isFetching, setIsFetching] = useState(true)
 
   const getPokemons = useCallback(() => {
-    setIsFetching(true)
     fetch('https://pokeapi.co/api/v2/pokemon?limit=200').then(response => response.json()).then(data => {
       setPokemons(data.results)
       setIsFetching(false)
