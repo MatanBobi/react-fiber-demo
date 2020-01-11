@@ -1,6 +1,5 @@
 import React, {useEffect, useState, useCallback, useDeferredValue} from 'react';
 import './App.css';
-import PokemonsList from "./components/PokemonsList";
 import SearchBox from './components/SearchBox';
 import {sendAnalyticsPing} from './helpers/utils';
 import Description from './components/Description';
@@ -11,6 +10,7 @@ import {
     unstable_scheduleCallback
 } from "scheduler";
 import Spinner from './components/Spinner';
+const PokemonsList = React.lazy(() => import ('./components/PokemonsList'))
 
 function App() {
     const [inputValue, setInputValue] = useState('');
