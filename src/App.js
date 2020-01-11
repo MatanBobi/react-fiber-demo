@@ -12,29 +12,18 @@ import {
 } from "scheduler";
 
 function App() {
-    const [pokemons, setPokemons] = useState([]);
     const [inputValue, setInputValue] = useState('');
-
-    const getPokemons = useCallback(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon?limit=200').then(response => response.json()).then(data => {
-            setPokemons(data.results)
-        })
-    }, [setPokemons]);
 
     const onInputChange = (value) => {
         setInputValue(value);
         sendAnalyticsPing(value);
     };
 
-    useEffect(() => {
-        getPokemons();
-    }, [getPokemons]);
-
     return (
         <div className="App">
-            <Header>Pokemons</Header>
+            <Header>Pokédex</Header>
             <SearchBox inputValue={inputValue} onChange={onInputChange}/>
-            <PokemonsList pokemons={pokemons} searchValue={inputValue}/>
+            <PokemonsList searchValue={inputValue}/>
             <Description/>
         </div>
     );

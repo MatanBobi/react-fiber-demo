@@ -1,4 +1,4 @@
-export const miningBitcoin = ms => {
+export const simulateSleep = ms => {
     let now = Date.now();
     while (Date.now() < now + ms) {
         // noop
@@ -7,7 +7,7 @@ export const miningBitcoin = ms => {
 
 export const sendAnalyticsPing = (value) => {
     performance.mark("analytics-start");
-    miningBitcoin(25);
+    simulateSleep(25);
     performance.mark("analytics-end");
     performance.measure(
         "Analytics: " + value,
