@@ -29,7 +29,7 @@ function App() {
 
     return (
         <div className="App">
-            <Header>Pokédex</Header>
+            <Header>Pokémons</Header>
             <SearchBox inputValue={inputValue} onChange={onInputChange}/>
             <React.Suspense fallback={<Spinner/>}>
                 <PokemonsList searchValue={deferredInputValue}/>
