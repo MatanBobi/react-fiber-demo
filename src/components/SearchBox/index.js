@@ -10,7 +10,7 @@ const SearchBox = ({inputValue, onChange}) => {
         className="input"
         value={inputValue}
         onChange={handleChange}
-        placeholder="Filter 🔍"
+        placeholder="Search 🔍"
     />);
 };
 
