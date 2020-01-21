@@ -1,3 +1,5 @@
+A fully working concurrent mode is available in branch features/working-async.
+
 This demo is inspired by philipp-spiess's example here: https://github.com/philipp-spiess/scheduletron3000
 
 ---
