@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useCallback, useDeferredValue} from 'react';
+import React, {useEffect, useState, useCallback, unstable_useDeferredValue} from 'react';
 import './App.css';
 import SearchBox from './components/SearchBox';
 import {sendAnalyticsPing} from './helpers/utils';
@@ -15,7 +15,7 @@ const PokemonsList = React.lazy(() => import ('./components/PokemonsList'))
 function App() {
     const [inputValue, setInputValue] = useState('');
 
-    const deferredInputValue = useDeferredValue(inputValue, {
+    const deferredInputValue = unstable_useDeferredValue(inputValue, {
         timeoutMs: 3000
     });
 
