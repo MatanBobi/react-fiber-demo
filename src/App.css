@@ -1,4 +1,4 @@
-html body{
+html body {
   background: #263238;
 }
 
@@ -39,7 +39,7 @@ h1 {
   margin: 60px;
 }
 
-.pokemon-wrapper{
+.pokemon-wrapper {
   display: flex;
   justify-content: center;
 }
@@ -48,16 +48,16 @@ h1 {
   padding: 20px 0;
   /*width: 50%;*/
   float: left;
-  color: #E6B89C;
+  color: #e6b89c;
 }
 
 .highlight {
   color: #000000;
-  background: #E6B89C;
+  background: #e6b89c;
   padding: 5px;
 }
 
-.pokemons-list{
+.pokemons-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -98,4 +98,14 @@ h1 {
   font-size: 18px;
   right: 110px;
   bottom: 12px;
+}
+.search-box {
+  position: relative;
+}
+.input-spinner-loading {
+  position: absolute;
+  top: 8px;
+  right: 140px;
+  transform: scale(0.7);
+  opacity: 0.8;
 }
